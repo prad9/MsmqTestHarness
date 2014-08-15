@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://lic.co.nz/treatment/treatmentevents/v0"
+		   xmlns="http://lic.co.nz/treatment/treatmentevents/v0"
+		   version="0.5"
+		   attributeFormDefault="unqualified"
+		   elementFormDefault="qualified"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:wsdl="http://microsoft.com/wsdl/types/">
+	<!-- Guid Type defined in Guid.xsd so that we get a C# -->
+	<xs:import namespace="http://microsoft.com/wsdl/types/" schemaLocation="Guid.xsd" />
+
+	<xs:complexType name="EnrolAnimalInHealthPlanEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid">
+				<xs:annotation>
+					<xs:documentation>
+						This EventId is also used as the AnimalHealthPlanId for subsequent events related to this health plan.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int"/>
+			<xs:element name="IsComplete" type="xs:boolean" />
+
+			<xs:element name="SeparateAnimal" type="xs:boolean" nillable="true" minOccurs="0" default="0" />
+
+			<xs:element name="Condition" type="ConditionType" nillable="true" />
+
+			<xs:element name="AffectedBodyPart" type="AffectedBodyPart" />
+
+			<xs:element name="Treatment" type="EnrolledTreatment" nillable="true" />
+
+			<xs:element name="ReturnToVat" type="DateAndTimeSession" nillable="true" >
+				<xs:annotation>
+					<xs:documentation>
+						Return to vat. Recalculated on each dose, and updated only if it is later than the current RTV.
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element nillable="true" name="VetRecommendedMeatWithholdDays" type="xs:short"/>
+			<xs:element nillable="true" name="VetRecommendedMilkWithhold" type="DurationType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="GiveDoseEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int"/>
+
+			<xs:element name="AnimalHealthPlanId" type="wsdl:guid" />
+			<xs:element name="PlannedDoseId" type="wsdl:guid" />
+
+			<xs:element name="Source" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="AddDoseEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int"/>
+
+			<xs:element name="AnimalHealthPlanId" type="wsdl:guid" />
+			<xs:element name="Source" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="CompleteHealthPlanEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int"/>
+
+			<xs:element name="AnimalHealthPlanId" type="wsdl:guid" />
+			<xs:element name="Source" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!-- 
+	=====================  Common types  ===================
+	-->
+	<xs:complexType name="DurationType">
+		<xs:sequence>
+			<xs:element name="Duration" type="xs:short" />
+			<xs:element name="UnitOfDuration" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Hour"/>
+						<xs:enumeration value="Day"/>
+						<xs:enumeration value="Milking"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="ProductType">
+		<xs:sequence>
+			<xs:element name="ProductCode" >
+				<xs:simpleType >
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="DoseType">
+		<xs:sequence>
+			<xs:element name="AmountPerDose" type="xs:decimal" />
+			<xs:element name="DoseUnitOfMeasure">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="CAP" />
+						<xs:enumeration value="GRAM" />
+						<xs:enumeration value="MG" />
+						<xs:enumeration value="ML" />
+						<xs:enumeration value="OBLT" />
+						<xs:enumeration value="PESS" />
+						<xs:enumeration value="TAB" />
+						<xs:enumeration value="TUBE" />
+						<xs:enumeration value="UNIT" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<xs:complexType name="ConditionType">
+		<xs:sequence>
+			<xs:element name="ConditionCode" >
+				<xs:simpleType >
+					<xs:restriction base="xs:string">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Description" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="DateAndTimeSession">
+		<xs:sequence>
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="Time" >
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="AM"/>
+						<xs:enumeration value="MD"/>
+						<xs:enumeration value="PM"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="AffectedBodyPart">
+		<xs:sequence>
+			<xs:element name="LF" type="xs:boolean" />
+			<xs:element name="RF" type="xs:boolean" />
+			<xs:element name="LR" type="xs:boolean" />
+			<xs:element name="RR" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PlannedDose">
+		<xs:sequence>
+			<xs:element name="PlannedDoseId" type="wsdl:guid" />
+			<xs:element name="DateTime" type="xs:dateTime" />
+			<xs:element nillable="true" name="Administered">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="TimeStamp" type="xs:dateTime" />
+						<xs:element name="Source" type="xs:string" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="EnrolledTreatment">
+		<xs:annotation>
+			<xs:documentation>
+				Contains details of the treatment, what a single dose looks like and the planned and actual doses applied
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+      <xs:element name="Product" type="ProductType" />
+			<xs:element name="Dose" type="DoseType"/>
+			<xs:element minOccurs="0" name="PlannedDoses">
+				<xs:annotation>
+					<xs:documentation>
+						Planned dose regime, calculated at time of creation, can be edited.
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element minOccurs="1" maxOccurs="unbounded" name="PlannedDose" type="PlannedDose" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

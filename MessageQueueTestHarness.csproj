@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{788C4B62-3859-43C5-B2D9-AD25416C0135}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MessageQueueTestHarness</RootNamespace>
+    <AssemblyName>MessageQueueTestHarness</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Composition">
+      <HintPath>packages\LIC.Library.Composition.3.2.2\lib\net40\LIC.Library.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Composition.Ninject">
+      <HintPath>packages\LIC.Library.Composition.Ninject.2.3.2\lib\net40\LIC.Library.Composition.Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Composition.Plugin.Markers">
+      <HintPath>packages\LIC.Library.Composition.Plugin.Markers.1.0.1\lib\net40\LIC.Library.Composition.Plugin.Markers.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Composition.PluginMonitor">
+      <HintPath>packages\LIC.Library.Composition.PluginMonitor.2.0.0\lib\net45\LIC.Library.Composition.PluginMonitor.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.FeatureToggles.PermissionChained.Markers">
+      <HintPath>packages\LIC.Library.FeatureToggles.PermissionChained.Markers.0.2.2.0\lib\net40\LIC.Library.FeatureToggles.PermissionChained.Markers.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.FileSystem">
+      <HintPath>packages\LIC.Library.FileSystem.1.0.0.0\lib\net40\LIC.Library.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.FileSystem.FileWatcher">
+      <HintPath>packages\LIC.Library.FileSystem.FileWatcher.1.2.1\lib\net45\LIC.Library.FileSystem.FileWatcher.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.IoC.Markers">
+      <HintPath>packages\LIC.Library.IoC.Markers.0.2.1.0\lib\net40\LIC.Library.IoC.Markers.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Logging.Log4NetToNLog">
+      <HintPath>packages\LIC.Library.Logging.Log4NetToNLog.1.0.5.0\lib\net40\LIC.Library.Logging.Log4NetToNLog.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Logging.Markers">
+      <HintPath>packages\LIC.Library.Logging.Markers.1.0.1.0\lib\net40\LIC.Library.Logging.Markers.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Logging.NLog">
+      <HintPath>packages\LIC.Library.Logging.NLog.1.1.2.0\lib\net40\LIC.Library.Logging.NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Messaging">
+      <HintPath>packages\LIC.Library.Messaging.3.6.3.0\lib\net40\LIC.Library.Messaging.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Messaging.Markers">
+      <HintPath>packages\LIC.Library.Messaging.Markers.2.3.0\lib\net40\LIC.Library.Messaging.Markers.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Minda.Core">
+      <HintPath>packages\LIC.Library.Minda.Core.1.0.2\lib\net45\LIC.Library.Minda.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Minda.Core.Domain">
+      <HintPath>packages\LIC.Library.Minda.Core.Domain.1.2.2\lib\net45\LIC.Library.Minda.Core.Domain.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Serialisation.Xml">
+      <HintPath>packages\LIC.Library.Serialisation.Xml.0.3.1.0\lib\net40\LIC.Library.Serialisation.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Library.Validation">
+      <HintPath>packages\LIC.Library.Validation.2.0.0\lib\net45\LIC.Library.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.MINDAWeb.Calendar.Commands">
+      <HintPath>packages\LIC.MINDAWeb.Calendar.Commands.0.6.1.0\lib\net40\LIC.MINDAWeb.Calendar.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.AnimalCharacteristic.Commands">
+      <HintPath>packages\LIC.Services.AnimalCharacteristic.Commands.2.0.0\lib\net45\LIC.Services.AnimalCharacteristic.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.AnimalGroupMembership.Commands">
+      <HintPath>packages\LIC.Services.AnimalGroupMembership.Commands.2.1.0\lib\net45\LIC.Services.AnimalGroupMembership.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.AnimalIdentity.Calendar.Commands">
+      <HintPath>packages\LIC.Services.AnimalIdentity.Calendar.Commands.1.0.0\lib\net40\LIC.Services.AnimalIdentity.Calendar.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.AnimalRecordsCompliance.Commands">
+      <HintPath>packages\LIC.Services.AnimalRecordsCompliance.Commands.1.0.0.0\lib\net40\LIC.Services.AnimalRecordsCompliance.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.EventProcessing.Contract, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\LIC.Services.EventProcessing.Contract.1.0.0.10\lib\net45\LIC.Services.EventProcessing.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.EventProcessing.Events, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\LIC.Services.EventProcessing.Events.1.0.0.11\lib\net45\LIC.Services.EventProcessing.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.EventProcessing.Plugin.Contract">
+      <HintPath>packages\LIC.Services.EventProcessing.Plugin.Contract.1.0.0.3\lib\net45\LIC.Services.EventProcessing.Plugin.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.ITOperations.EventProcessing.Commands, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\LIC.Services.ITOperations.EventProcessing.Commands.1.0.4-alpha\lib\net45\LIC.Services.ITOperations.EventProcessing.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.ITOperations.EventProcessing.Contract">
+      <HintPath>packages\LIC.Services.ITOperations.EventProcessing.Contract.1.2.0.0\lib\net45\LIC.Services.ITOperations.EventProcessing.Contract.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.ITOperations.EventProcessing.Events, Version=1.0.26.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\LIC.Services.ITOperations.EventProcessing.Events.1.0.26-alpha\lib\net45\LIC.Services.ITOperations.EventProcessing.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.ITOperations.EventProcessing.Plugin.Contracts">
+      <HintPath>packages\LIC.Services.ITOperations.EventProcessing.Plugin.Contracts.1.0.0.0\lib\net45\LIC.Services.ITOperations.EventProcessing.Plugin.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.Mating.Commands">
+      <HintPath>packages\LIC.Services.Mating.Commands.1.2.2.0\lib\net45\LIC.Services.Mating.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.Mating.Events">
+      <HintPath>packages\LIC.Services.Mating.Events.0.29.0.0\lib\net45\LIC.Services.Mating.Events.dll</HintPath>
+    </Reference>
+    <Reference Include="LIC.Services.SalesOrderManagement.Commands">
+      <HintPath>packages\LIC.Services.SalesOrderManagement.Commands.1.0.0.0\lib\net40\LIC.Services.SalesOrderManagement.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.ContextPreservation">
+      <HintPath>packages\Ninject.Extensions.ContextPreservation.3.0.0.8\lib\net45-full\Ninject.Extensions.ContextPreservation.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Logging">
+      <HintPath>packages\Ninject.Extensions.Logging.3.0.1.0\lib\net45-full\Ninject.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Logging.NLog2">
+      <HintPath>packages\Ninject.Extensions.Logging.nlog2.3.0.1.0\lib\net45-full\Ninject.Extensions.Logging.NLog2.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.NamedScope">
+      <HintPath>packages\Ninject.Extensions.NamedScope.3.0.0.5\lib\net45-full\Ninject.Extensions.NamedScope.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>packages\NLog.2.0.1.2\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus">
+      <HintPath>packages\NServiceBus.Interfaces.3.3.8\lib\net40\NServiceBus.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.Core">
+      <HintPath>packages\NServiceBus.3.3.8\lib\net40\NServiceBus.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NServiceBus.ObjectBuilder.Ninject">
+      <HintPath>packages\NServiceBus.Ninject.3.3.8\lib\net40\NServiceBus.ObjectBuilder.Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>packages\LIC.Library.Minda.Core.1.0.2\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="SplunkSDK">
+      <HintPath>packages\SplunkSDK.1.0.2\lib\net35\SplunkSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\ItOpsAnimalCompliance\ResourceLocator.cs" />
+    <Compile Include="Contracts\ItOpsAnimalGroupMembership\ResourceLocator.cs" />
+    <Compile Include="Contracts\ItOpsAnimalIdentity\ResourceLocator.cs" />
+    <Compile Include="Contracts\ItOpsMating\ResourceLocator.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="ExternalClasses\InsertEvent.cs" />
+    <Compile Include="ExternalClasses\SOMValidateAnimalEvents.cs" />
+    <Compile Include="ExternalClasses\ARCValidateAnimalEvents.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MessageSenders\AggQueueMsgSender.cs" />
+    <Compile Include="MessageSenders\ApproverQueueMsgSender.cs" />
+    <Compile Include="MessageSenders\ITOpsMsgSender.cs" />
+    <Compile Include="MessageSenders\ReceiverQueueMsgSender.cs" />
+    <Compile Include="MessageSenders\ValidatorQueueMsgSender.cs" />
+    <Compile Include="MessageSenders\WriterQueueMsgSender.cs" />
+    <Compile Include="Service References\ohlala\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceBusFactory.cs" />
+    <Compile Include="Utils\PTPTCodeResetter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Contracts\ItOpsAnimalCompliance\Guid.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Contracts\ItOpsAnimalCompliance\NaitMovementEvent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Contracts\ItOpsAnimalGroupMembership\Guid.xsd" />
+    <None Include="Contracts\ItOpsAnimalGroupMembership\PurchaseByEidEvent.xsd" />
+    <None Include="Contracts\ItOpsAnimalGroupMembership\SoldEvent.xsd" />
+    <None Include="Contracts\ItOpsAnimalIdentity\AssignEidEvent.xsd" />
+    <None Include="Contracts\ItOpsAnimalIdentity\Guid.xsd" />
+    <None Include="Contracts\ItOpsMating\DiyMatingEvent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Contracts\ItOpsMating\Guid.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Contracts\ItOpsMating\HeatEvent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Contracts\ItOpsMating\NaturalMatingEvent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Contracts\ItOpsMating\PregnancyDiagnosisEvent.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ohlala\LegacyAdapterService.wsdl" />
+    <None Include="Service References\ohlala\LegacyAdapterService.xsd" />
+    <None Include="Service References\ohlala\LegacyAdapterService1.xsd" />
+    <None Include="Service References\ohlala\LegacyAdapterService2.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ResourceLocater\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ohlala\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ohlala\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ohlala\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ohlala\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

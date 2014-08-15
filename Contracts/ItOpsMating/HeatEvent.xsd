@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://lic.co.nz/mating/heat/v0"
+		   xmlns="http://lic.co.nz/mating/heat/v0"
+		   version="0"
+		   elementFormDefault="qualified"
+		   attributeFormDefault="unqualified"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:wsdl="http://microsoft.com/wsdl/types/">
+
+	<xs:import namespace="http://microsoft.com/wsdl/types/" schemaLocation="Guid.xsd" />
+
+	<xs:complexType name="HeatEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int" />
+			<xs:element name="AnimalGroupBpNumber" type="xs:string" />
+			<xs:element name="KamarStatus" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Activated" />
+						<xs:enumeration value="Missing" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

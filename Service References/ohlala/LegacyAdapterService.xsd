@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0" elementFormDefault="qualified" targetNamespace="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0" version="1_0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ConvertAnimalIDRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="AnimalIdParams" type="tns:ArrayOfConvertAnimalIDParams" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfConvertAnimalIDParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConvertAnimalIDParams" nillable="true" type="tns:ConvertAnimalIDParams" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConvertAnimalIDParams">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="IdType" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="MapReference" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="HerdNumber" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AnimalID" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="EventDate" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="AnimalKey" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConvertAnimalIDResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="ConvertedAnimalIDs" type="tns:ArrayOfConvertAnimalIDParams" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ICheckHerdStatusRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HerdCode" type="xs:int" />
+      <xs:element minOccurs="0" name="IsFileExtract" type="xs:boolean" />
+      <xs:element minOccurs="0" name="OwnerParticipantCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessingState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionHerdCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ICheckHerdStatusRequest" nillable="true" type="tns:ICheckHerdStatusRequest" />
+  <xs:complexType name="ICheckHerdStatusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="FarmTypeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FrozenUpdateUserID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HerdNumber" type="xs:short" />
+      <xs:element minOccurs="0" name="HerdUpdateStatusCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsFrozen" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessingState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ICheckHerdStatusResponse" nillable="true" type="tns:ICheckHerdStatusResponse" />
+  <xs:element name="CheckHerdStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:ICheckHerdStatusRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckHerdStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckHerdStatusResult" nillable="true" type="tns:ICheckHerdStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="IMindaExtractReportRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ExtractParameters" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HerdNumber" type="xs:short" />
+      <xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RecipientParticipantCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionHerdCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RequestDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TransactionID" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IMindaExtractReportRequest" nillable="true" type="tns:IMindaExtractReportRequest" />
+  <xs:element name="InsertMindaExtractReportRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:IMindaExtractReportRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertMindaExtractReportRequestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertMindaExtractReportRequestResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ICheckUnprintedRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HerdCode" type="xs:int" />
+      <xs:element minOccurs="0" name="RegionCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ICheckUnprintedRequest" nillable="true" type="tns:ICheckUnprintedRequest" />
+  <xs:complexType name="IGenericResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserMessage" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IGenericResponse" nillable="true" type="tns:IGenericResponse" />
+  <xs:element name="CheckUnprinted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:ICheckUnprintedRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckUnprintedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckUnprintedResult" nillable="true" type="tns:IGenericResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="IExtractRetriggerRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DocID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HerdCode" type="xs:int" />
+      <xs:element minOccurs="0" name="HerdNumber" type="xs:short" />
+      <xs:element minOccurs="0" name="MapReference" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ParticipantCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegionCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IExtractRetriggerRequest" nillable="true" type="tns:IExtractRetriggerRequest" />
+  <xs:element name="ExtractRetrigger">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="request" nillable="true" type="tns:IExtractRetriggerRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExtractRetriggerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ExtractRetriggerResult" nillable="true" type="tns:IGenericResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

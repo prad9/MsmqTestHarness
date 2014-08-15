@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://lic.co.nz/mating/pregnancydiagnosis/v0"
+		   xmlns="http://lic.co.nz/mating/pregnancydiagnosis/v0"
+		   version="0"
+		   elementFormDefault="qualified"
+		   attributeFormDefault="unqualified"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:wsdl="http://microsoft.com/wsdl/types/">
+
+	<xs:import namespace="http://microsoft.com/wsdl/types/" schemaLocation="Guid.xsd" />
+
+	<xs:complexType name="PregnancyDuration">
+		<xs:sequence>
+			<xs:element name="Value" type="xs:int" />
+			<xs:element name="Unit">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Days" />
+						<xs:enumeration value="Weeks" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PregnancyDiagnosisEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int" />
+			<xs:element name="Diagnosis">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">The code of the pregnancy status of a cow.  'PN'=Pregnant, 'MT'=Empty, 'DB'=Doubtful</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Pregnant" />
+						<xs:enumeration value="Empty" />
+						<xs:enumeration value="Doubtful" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element nillable="true" name="Duration" type="PregnancyDuration" />
+			<xs:element nillable="true" name="AssessorPtPtCode" type="xs:string" />
+			<xs:element nillable="true" name="NumberOfCalves">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="One" />
+						<xs:enumeration value="Two" />
+						<xs:enumeration value="Three" />
+						<xs:enumeration value="Four" />
+						<xs:enumeration value="Multiple" />
+						<xs:enumeration value="Unknown" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

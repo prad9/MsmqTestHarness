@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://lic.co.nz/animalgroupmembership/purchasebyeidevent/v0"
+		   xmlns="http://lic.co.nz/animalgroupmembership/purchasebyeidevent/v0"
+		   version="0.9"
+		   attributeFormDefault="unqualified"
+		   elementFormDefault="qualified"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:wsdl="http://microsoft.com/wsdl/types/">
+	<!-- Guid Type defined in Guid.xsd so that we get a C# -->
+	<xs:import namespace="http://microsoft.com/wsdl/types/" schemaLocation="Guid.xsd" />
+
+	<xs:complexType name="PurchaseByEidEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="CreatedDate" type="xs:dateTime" />
+
+			<xs:element name="Eid" type="xs:string" />
+			<xs:element name="ManagementNumber" type="xs:int" nillable="true" />
+			<xs:element name="BirthId" type="BirthId" nillable="true" />
+
+			<xs:element name="FromNaitLocationId" type="xs:int" nillable="true" />
+			<xs:element name="ToNaitLocationId" type="xs:int" nillable="true" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="BirthId">
+		<xs:sequence>
+			<xs:element name="Prefix">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="((?=[^AEIOUSZ])[A-Z\s]){1}((?=[^AEIOUSZ])[A-Z]){2,3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="Year" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:pattern value="((19|20)?\d\d)"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="SequenceNumber" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:int">
+						<xs:pattern value="[1-9][0-9]{0,3}?"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

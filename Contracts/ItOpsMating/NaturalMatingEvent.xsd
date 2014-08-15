@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://lic.co.nz/mating/naturalmatingevent/v0"
+		   xmlns="http://lic.co.nz/mating/naturalmatingevent/v0"
+		   version="0"
+		   elementFormDefault="qualified"
+		   attributeFormDefault="unqualified"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:wsdl="http://microsoft.com/wsdl/types/">
+
+	<xs:import namespace="http://microsoft.com/wsdl/types/" schemaLocation="Guid.xsd" />
+
+	<xs:complexType name="NaturalMatingEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int" />
+
+			<xs:element nillable="true" name="MatingType">
+				<xs:annotation>
+					<xs:documentation>A code that indicates the way in which mating was carried out.  Values:  1=artificial mating - LIC - tech,  2= artificial mating - LIC - Diy, 3=artificial mating - non LIC AB docket supplied, 4=artificial mating - non LIC no docket supplied, 5=natural mating, 6=start run with bull, 7= finish run with bull</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Natural" />
+						<xs:enumeration value="StartRunWithBull" />
+						<xs:enumeration value="FinishRunWithBull" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="BullId" >
+		<xs:restriction base="xs:int" />
+	</xs:simpleType>
+
+</xs:schema>

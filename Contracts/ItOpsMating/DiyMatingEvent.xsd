@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://lic.co.nz/mating/diymating/v0"
+		   xmlns="http://lic.co.nz/mating/diymating/v0"
+		   version="0"
+		   elementFormDefault="qualified"
+		   attributeFormDefault="unqualified"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:wsdl="http://microsoft.com/wsdl/types/">
+
+	<xs:import namespace="http://microsoft.com/wsdl/types/" schemaLocation="Guid.xsd" />
+
+	<xs:complexType name="DiyMatingEvent">
+		<xs:sequence>
+			<xs:element name="EventId" type="wsdl:guid" />
+			<xs:element name="Date" type="xs:dateTime" />
+			<xs:element name="AnimalKey" type="xs:int" />
+			<xs:element name="AnimalGroupBpNumber" type="xs:string" />
+
+			<xs:element nillable="false" name="MatingChargeType">
+				<xs:annotation>
+					<xs:documentation>A code which indicates the system of charging used for an artificial insemination.  Values: P=premier sires, S=sire proving scheme, N=nominated semen, E=semen used in SPS emergency- derived from 'S' code with 'P' bull on MDC, C=contract mating, A=association use code, X=experimental, G=genermate - PS, H=genermate- nominated, M= marker - PS semen used on SPS animal  , R=Hereford   , T=no charge - natural mating </xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PremierSires" />
+						<xs:enumeration value="SireProvingScheme" />
+						<xs:enumeration value="Nominated" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="BullId" type="BullId" nillable="false" />
+			
+			<xs:element nillable="true" name="SemenBatchNumber">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">A batch number is a unique Identification given to a quantity of semen processed and labelled in an Identical manner</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="6" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element nillable="false" name="SemenBatchProvider">
+				<xs:annotation>
+					<xs:documentation xml:lang="EN">A code which indicates the source of the semen that is being used for an artificial insemination.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="LIC" />
+						<xs:enumeration value="NonLIC" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="BullId" >
+		<xs:restriction base="xs:int" />
+	</xs:simpleType>
+</xs:schema>

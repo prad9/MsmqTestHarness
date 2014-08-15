@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LegacyAdapterService" targetNamespace="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/Imports">
+      <xsd:import schemaLocation="http://lic-bt2010dev.dsldev.local/LA.LegacyAdapterService/LegacyAdapterService.svc?xsd=xsd0" namespace="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0" />
+      <xsd:import schemaLocation="http://lic-bt2010dev.dsldev.local/LA.LegacyAdapterService/LegacyAdapterService.svc?xsd=xsd2" namespace="http://www.lic.co.nz/SI/Common/Framework/V1_0" />
+      <xsd:import schemaLocation="http://lic-bt2010dev.dsldev.local/LA.LegacyAdapterService/LegacyAdapterService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILegacyAdapterService_ConvertAnimalIDs_InputMessage">
+    <wsdl:part name="request" type="tns:ConvertAnimalIDRequest" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_ConvertAnimalIDs_OutputMessage">
+    <wsdl:part name="ConvertAnimalIDsResult" type="tns:ConvertAnimalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_ConvertAnimalIDs_ApplicationExecutionFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://www.lic.co.nz/SI/Common/Framework/V1_0" name="detail" element="q1:ApplicationExecutionFault" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_CheckHerdStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckHerdStatus" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_CheckHerdStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckHerdStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_CheckHerdStatus_ApplicationExecutionFaultFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://www.lic.co.nz/SI/Common/Framework/V1_0" name="detail" element="q2:ApplicationExecutionFault" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_InsertMindaExtractReportRequest_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMindaExtractReportRequest" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_InsertMindaExtractReportRequest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertMindaExtractReportRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_InsertMindaExtractReportRequest_ApplicationExecutionFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://www.lic.co.nz/SI/Common/Framework/V1_0" name="detail" element="q3:ApplicationExecutionFault" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_CheckUnprinted_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUnprinted" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_CheckUnprinted_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckUnprintedResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_CheckUnprinted_ApplicationExecutionFaultFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://www.lic.co.nz/SI/Common/Framework/V1_0" name="detail" element="q4:ApplicationExecutionFault" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_ExtractRetrigger_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExtractRetrigger" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_ExtractRetrigger_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExtractRetriggerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILegacyAdapterService_ExtractRetrigger_ApplicationExecutionFaultFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://www.lic.co.nz/SI/Common/Framework/V1_0" name="detail" element="q5:ApplicationExecutionFault" />
+  </wsdl:message>
+  <wsdl:portType name="ILegacyAdapterService">
+    <wsdl:operation name="ConvertAnimalIDs" parameterOrder="request">
+      <wsdl:input wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ConvertAnimalIDs" message="tns:ILegacyAdapterService_ConvertAnimalIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ConvertAnimalIDsResponse" message="tns:ILegacyAdapterService_ConvertAnimalIDs_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ConvertAnimalIDsApplicationExecutionFaultFault" name="ApplicationExecutionFaultFault" message="tns:ILegacyAdapterService_ConvertAnimalIDs_ApplicationExecutionFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckHerdStatus">
+      <wsdl:input wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckHerdStatus" message="tns:ILegacyAdapterService_CheckHerdStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckHerdStatusResponse" message="tns:ILegacyAdapterService_CheckHerdStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckHerdStatusApplicationExecutionFaultFault" name="ApplicationExecutionFaultFault" message="tns:ILegacyAdapterService_CheckHerdStatus_ApplicationExecutionFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertMindaExtractReportRequest">
+      <wsdl:input wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/InsertMindaExtractReportRequest" message="tns:ILegacyAdapterService_InsertMindaExtractReportRequest_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/InsertMindaExtractReportRequestResponse" message="tns:ILegacyAdapterService_InsertMindaExtractReportRequest_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/InsertMindaExtractReportRequestApplicationExecutionFaultFault" name="ApplicationExecutionFaultFault" message="tns:ILegacyAdapterService_InsertMindaExtractReportRequest_ApplicationExecutionFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnprinted">
+      <wsdl:input wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckUnprinted" message="tns:ILegacyAdapterService_CheckUnprinted_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckUnprintedResponse" message="tns:ILegacyAdapterService_CheckUnprinted_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckUnprintedApplicationExecutionFaultFault" name="ApplicationExecutionFaultFault" message="tns:ILegacyAdapterService_CheckUnprinted_ApplicationExecutionFaultFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExtractRetrigger">
+      <wsdl:input wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ExtractRetrigger" message="tns:ILegacyAdapterService_ExtractRetrigger_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ExtractRetriggerResponse" message="tns:ILegacyAdapterService_ExtractRetrigger_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ExtractRetriggerApplicationExecutionFaultFault" name="ApplicationExecutionFaultFault" message="tns:ILegacyAdapterService_ExtractRetrigger_ApplicationExecutionFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LegacyAdapterService" type="tns:ILegacyAdapterService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="ConvertAnimalIDs">
+      <soap:operation soapAction="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ConvertAnimalIDs" style="rpc" />
+      <wsdl:input>
+        <soap:body use="literal" namespace="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" namespace="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExecutionFaultFault">
+        <soap:fault use="literal" name="ApplicationExecutionFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckHerdStatus">
+      <soap:operation soapAction="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckHerdStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExecutionFaultFault">
+        <soap:fault use="literal" name="ApplicationExecutionFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InsertMindaExtractReportRequest">
+      <soap:operation soapAction="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/InsertMindaExtractReportRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExecutionFaultFault">
+        <soap:fault use="literal" name="ApplicationExecutionFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUnprinted">
+      <soap:operation soapAction="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/CheckUnprinted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExecutionFaultFault">
+        <soap:fault use="literal" name="ApplicationExecutionFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ExtractRetrigger">
+      <soap:operation soapAction="http://www.lic.co.nz/SI/LegacyAdapter/LegacyAdapterService/V1_0/ILegacyAdapterService/ExtractRetrigger" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ApplicationExecutionFaultFault">
+        <soap:fault use="literal" name="ApplicationExecutionFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LegacyAdapterService">
+    <wsdl:port name="LegacyAdapterService" binding="tns:LegacyAdapterService">
+      <soap:address location="http://lic-bt2010dev.dsldev.local/LA.LegacyAdapterService/LegacyAdapterService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
