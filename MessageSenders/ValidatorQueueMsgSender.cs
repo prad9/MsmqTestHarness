@@ -1,6 +1,6 @@
 using System;
 using NServiceBus;
-using ARC = LIC.Services.AnimalRecordsCompliance.Commands;
+using ARC = LIC.Services.AnimalRecordsCompliance.Commands.Internal;
 using SOM = LIC.Services.SalesOrderManagement.Commands.Internal;
 using Mating = LIC.Services.Mating.Commands;
 
@@ -28,7 +28,7 @@ namespace MessageQueueTestHarness.MessageSenders
 							Date = DateTime.Now,
 							EventId = new Guid("6aad2090-7e64-4668-b0b7-c06523058b4a"),
 							EventType = "ITOperations.Mating.HeatEvent",
-							EventSource = "ProtrackShed"
+							EventSource = "MindaPro"
 						});
 				}
 				if (serviceBoundary == Enums.ServiceBoundary.Som)

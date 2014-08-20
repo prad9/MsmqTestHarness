@@ -1,7 +1,7 @@
 ﻿using System;
 using LIC.Library.Messaging.Markers;
 
-namespace LIC.Services.AnimalRecordsCompliance.Commands
+namespace LIC.Services.AnimalRecordsCompliance.Commands.Internal
 {
 	public class ValidateAnimalEvents : ICommand
 	{
