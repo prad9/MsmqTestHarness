@@ -33,19 +33,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Composition">
-      <HintPath>packages\LIC.Library.Composition.3.2.2\lib\net40\LIC.Library.Composition.dll</HintPath>
+      <HintPath>packages\LIC.Library.Composition.3.2.3\lib\net40\LIC.Library.Composition.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Composition.Ninject">
-      <HintPath>packages\LIC.Library.Composition.Ninject.2.3.2\lib\net40\LIC.Library.Composition.Ninject.dll</HintPath>
+      <HintPath>packages\LIC.Library.Composition.Ninject.2.4.0\lib\net40\LIC.Library.Composition.Ninject.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Composition.Plugin.Markers">
       <HintPath>packages\LIC.Library.Composition.Plugin.Markers.1.0.1\lib\net40\LIC.Library.Composition.Plugin.Markers.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Composition.PluginMonitor">
-      <HintPath>packages\LIC.Library.Composition.PluginMonitor.2.0.0\lib\net45\LIC.Library.Composition.PluginMonitor.dll</HintPath>
+      <HintPath>packages\LIC.Library.Composition.PluginMonitor.2.0.1\lib\net45\LIC.Library.Composition.PluginMonitor.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.FeatureToggles.PermissionChained.Markers">
       <HintPath>packages\LIC.Library.FeatureToggles.PermissionChained.Markers.0.2.2.0\lib\net40\LIC.Library.FeatureToggles.PermissionChained.Markers.dll</HintPath>
@@ -54,13 +57,13 @@
       <HintPath>packages\LIC.Library.FileSystem.1.0.0.0\lib\net40\LIC.Library.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.FileSystem.FileWatcher">
-      <HintPath>packages\LIC.Library.FileSystem.FileWatcher.1.2.1\lib\net45\LIC.Library.FileSystem.FileWatcher.dll</HintPath>
+      <HintPath>packages\LIC.Library.FileSystem.FileWatcher.1.2.3\lib\net45\LIC.Library.FileSystem.FileWatcher.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.IoC.Markers">
       <HintPath>packages\LIC.Library.IoC.Markers.0.2.1.0\lib\net40\LIC.Library.IoC.Markers.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Logging.Log4NetToNLog">
-      <HintPath>packages\LIC.Library.Logging.Log4NetToNLog.1.0.5.0\lib\net40\LIC.Library.Logging.Log4NetToNLog.dll</HintPath>
+      <HintPath>packages\LIC.Library.Logging.Log4NetToNLog.1.0.6.0\lib\net40\LIC.Library.Logging.Log4NetToNLog.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Logging.Markers">
       <HintPath>packages\LIC.Library.Logging.Markers.1.0.1.0\lib\net40\LIC.Library.Logging.Markers.dll</HintPath>
@@ -72,45 +75,34 @@
       <HintPath>packages\LIC.Library.Messaging.3.6.3.0\lib\net40\LIC.Library.Messaging.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Messaging.Markers">
-      <HintPath>packages\LIC.Library.Messaging.Markers.2.3.0\lib\net40\LIC.Library.Messaging.Markers.dll</HintPath>
+      <HintPath>packages\LIC.Library.Messaging.Markers.2.3.1\lib\net40\LIC.Library.Messaging.Markers.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Minda.Core">
-      <HintPath>packages\LIC.Library.Minda.Core.1.0.2\lib\net45\LIC.Library.Minda.Core.dll</HintPath>
+      <HintPath>packages\LIC.Library.Minda.Core.1.3.0\lib\net45\LIC.Library.Minda.Core.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Minda.Core.Domain">
-      <HintPath>packages\LIC.Library.Minda.Core.Domain.1.2.2\lib\net45\LIC.Library.Minda.Core.Domain.dll</HintPath>
+      <HintPath>packages\LIC.Library.Minda.Core.Domain.1.6.0\lib\net45\LIC.Library.Minda.Core.Domain.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Serialisation.Xml">
       <HintPath>packages\LIC.Library.Serialisation.Xml.0.3.1.0\lib\net40\LIC.Library.Serialisation.Xml.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Library.Validation">
-      <HintPath>packages\LIC.Library.Validation.2.0.0\lib\net45\LIC.Library.Validation.dll</HintPath>
+      <HintPath>packages\LIC.Library.Validation.3.1.0\lib\net45\LIC.Library.Validation.dll</HintPath>
     </Reference>
     <Reference Include="LIC.MINDAWeb.Calendar.Commands">
-      <HintPath>packages\LIC.MINDAWeb.Calendar.Commands.0.6.1.0\lib\net40\LIC.MINDAWeb.Calendar.Commands.dll</HintPath>
+      <HintPath>packages\LIC.MINDAWeb.Calendar.Commands.1.0.0.0\lib\net40\LIC.MINDAWeb.Calendar.Commands.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Services.AnimalCharacteristic.Commands">
-      <HintPath>packages\LIC.Services.AnimalCharacteristic.Commands.2.0.0\lib\net45\LIC.Services.AnimalCharacteristic.Commands.dll</HintPath>
+      <HintPath>packages\LIC.Services.AnimalCharacteristic.Commands.2.1.0.0\lib\net45\LIC.Services.AnimalCharacteristic.Commands.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Services.AnimalGroupMembership.Commands">
-      <HintPath>packages\LIC.Services.AnimalGroupMembership.Commands.2.1.0\lib\net45\LIC.Services.AnimalGroupMembership.Commands.dll</HintPath>
+      <HintPath>packages\LIC.Services.AnimalGroupMembership.Commands.2.3.0\lib\net45\LIC.Services.AnimalGroupMembership.Commands.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Services.AnimalIdentity.Calendar.Commands">
-      <HintPath>packages\LIC.Services.AnimalIdentity.Calendar.Commands.1.0.0\lib\net40\LIC.Services.AnimalIdentity.Calendar.Commands.dll</HintPath>
+      <HintPath>packages\LIC.Services.AnimalIdentity.Calendar.Commands.1.1.0\lib\net40\LIC.Services.AnimalIdentity.Calendar.Commands.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Services.AnimalRecordsCompliance.Commands">
-      <HintPath>packages\LIC.Services.AnimalRecordsCompliance.Commands.1.0.0.0\lib\net40\LIC.Services.AnimalRecordsCompliance.Commands.dll</HintPath>
-    </Reference>
-    <Reference Include="LIC.Services.EventProcessing.Contract, Version=1.0.0.10, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\LIC.Services.EventProcessing.Contract.1.0.0.10\lib\net45\LIC.Services.EventProcessing.Contract.dll</HintPath>
-    </Reference>
-    <Reference Include="LIC.Services.EventProcessing.Events, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\LIC.Services.EventProcessing.Events.1.0.0.11\lib\net45\LIC.Services.EventProcessing.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="LIC.Services.EventProcessing.Plugin.Contract">
-      <HintPath>packages\LIC.Services.EventProcessing.Plugin.Contract.1.0.0.3\lib\net45\LIC.Services.EventProcessing.Plugin.Contract.dll</HintPath>
+      <HintPath>packages\LIC.Services.AnimalRecordsCompliance.Commands.1.1.0\lib\net40\LIC.Services.AnimalRecordsCompliance.Commands.dll</HintPath>
     </Reference>
     <Reference Include="LIC.Services.ITOperations.EventProcessing.Commands, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -142,7 +134,7 @@
       <HintPath>packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
-      <HintPath>packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+      <HintPath>packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Extensions.ContextPreservation">
       <HintPath>packages\Ninject.Extensions.ContextPreservation.3.0.0.8\lib\net45-full\Ninject.Extensions.ContextPreservation.dll</HintPath>
@@ -157,10 +149,10 @@
       <HintPath>packages\Ninject.Extensions.NamedScope.3.0.0.5\lib\net45-full\Ninject.Extensions.NamedScope.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
-      <HintPath>packages\NLog.2.0.1.2\lib\net45\NLog.dll</HintPath>
+      <HintPath>packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus">
-      <HintPath>packages\NServiceBus.Interfaces.3.3.8\lib\net40\NServiceBus.dll</HintPath>
+      <HintPath>packages\NServiceBus.Interfaces.3.3.5\lib\net40\NServiceBus.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus.Core">
       <HintPath>packages\NServiceBus.3.3.8\lib\net40\NServiceBus.Core.dll</HintPath>
@@ -169,7 +161,7 @@
       <HintPath>packages\NServiceBus.Ninject.3.3.8\lib\net40\NServiceBus.ObjectBuilder.Ninject.dll</HintPath>
     </Reference>
     <Reference Include="RazorEngine">
-      <HintPath>packages\LIC.Library.Minda.Core.1.0.2\lib\net45\RazorEngine.dll</HintPath>
+      <HintPath>packages\LIC.Library.Minda.Core.1.3.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
     <Reference Include="SplunkSDK">
       <HintPath>packages\SplunkSDK.1.0.2\lib\net35\SplunkSDK.dll</HintPath>
@@ -178,7 +170,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
@@ -269,6 +260,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\LIC.Library.Validation\README.txt" />
+    <Content Include="Resources\LIC.Library.Validation\RoundHousE\0001 - Add Guid Linking Table Type.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
